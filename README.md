@@ -1,6 +1,6 @@
 <h1>Practice Contest Problems</h1>
 <ul>
-  <li><p>Problems from <a href="https://www.codeforces.com">Codeforces</a> and <a href="https://onlinejudge.org/">UVA online judge</a></p></li>
+  <li><p>Problems from <a href="https://www.codeforces.com">Codeforces</a>, <a href="https://onlinejudge.org/">UVA online judge</a>, and <a href="https://ucrpc.net/">UCR Programming Contest</a></p></li>
   <li>Codeforces profile: <a href="https://codeforces.com/profile/AfromanLecouche">AfromanLecouche</a></li>
   <li><p>Problems have the same name as on their respective sites</p></li>
   <li><p>All problems from codeforces should have a link to the problem at the top of the main.cpp file</p></li>
