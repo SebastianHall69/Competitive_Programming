@@ -1,0 +1,42 @@
+//https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=609&page=show_problem&problem=514
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    //Declare variables
+    double h = 0.0, u = 0.0, d = 0.0, f = 0.0;
+
+    while(scanf("%i%i%i%i", &h, &u, &d, &f)) {
+        //Test exit condition
+        if(h == 0) break;
+
+        //Declare variables
+        double pos = 0.0;
+        int day = 1;
+
+        //Simulate
+        while(pos >= 0 && pos <= h) {
+            //Daytime
+            if(day & 1) {
+                pos += max(u, 0.0);
+            } else {//Night time
+                pos -= d;
+//                u -= fallDist;
+            }
+
+            cout<<"pos: "<<pos<<"\tper day: "<<u<<endl;
+            ++day;
+        }
+
+        //Output answer
+        if(pos < 0) {
+            printf("failure on day %i\n", day / 2);
+        } else {
+            printf("success on day %i\n", day / 2);
+        }
+
+    }
+
+    //A Sebastian Production
+    return 0;
+}
