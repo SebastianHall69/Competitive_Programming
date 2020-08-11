@@ -1,7 +1,6 @@
 #ifndef UNIONFIND_H
 #define UNIONFIND_H
 
-#include <vector>
 #include <unordered_set>
 #include <numeric>
 using namespace std;
@@ -9,18 +8,24 @@ using namespace std;
 template<class T>
 class UnionFind {
 private:
-    int m_size;//Number of vertices in set
-    unordered_set<T> roots;//Set of all unique roots
-    vector<T> m_parent;//Parent of each vertex
-    vector<T> m_count;//Count of elements in each set, must access by root of set
+    int m_size;
+    unordered_set<T> roots;
+    T *m_parent;
+    T *m_count;
     
 public:
     //Constructor
     UnionFind(T size) : m_size(size) {
-        m_parent.resize(size);
-        iota(m_parent.begin(), m_parent.end(), static_cast<T>(0));//Set each vertex to be its own parent
-        roots = unordered_set<T>(m_parent.begin(), m_parent.end());//Add all vertices to roots
-        m_count = vector<T>(size, static_cast<T>(1));//Every set has one element at first
+        m_parent = new T[size];
+        m_count = new T[size];
+        iota(m_parent, m_parent + size, 0);//Set each vertex to be its own parent
+        roots = unordered_set<T>(m_parent, m_parent + size);//Add all vertices to roots
+        fill(m_count, m_count + size, 1);//Every set has one element at first
+    }
+    
+    ~UnionFind() {
+        delete [] m_parent;
+        delete [] m_count;
     }
     
     //Return number of vertices in union find
